@@ -23,7 +23,7 @@ test('UPDATE_PRODUCTS', () => {
     expect(initialState.products.length).toBe(0)
 })
 
-test('UPDATE_CATEGORIES'), () => {
+test('UPDATE_CATEGORIES', () => {
     let newState = reducer(initialState, {
         type: UPDATE_CATEGORIES,
         categories: [{}, {}]
@@ -31,4 +31,4 @@ test('UPDATE_CATEGORIES'), () => {
 
     expect(newState.categories.length).toBe(2);
     expect(initialState.categories.length).toBe(1)
-} 
+}) 
