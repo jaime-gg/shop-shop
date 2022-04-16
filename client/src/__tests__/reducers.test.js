@@ -111,3 +111,13 @@ test('UPDATE_CART_QUANTITY', () => {
     expect(newState.cart[1].purchaseQuantity).toBe(2);
     expect(initialState.cartOpen).toBe(false);
 });
+
+test('CLEAR_CART', () => {
+    let newState = reducer(initialState, {
+        type: CLEAR_CART
+    });
+
+    expect(newState.cartOpen).toBe(false);
+    expect(newState.cart.length).toBe(0);
+    expect(initialState.cart.length).toBe(2);
+});

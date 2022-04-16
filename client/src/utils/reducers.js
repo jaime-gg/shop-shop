@@ -69,7 +69,12 @@ export const reducer = (state, action) => {
                 })
             };
 
-        
+        case CLEAR_CART: 
+            return {
+                ...state,
+                cartOpen: false, 
+                cart: []
+            }
         // if none of these actions, do not update state at all and keel things the same!
         default:
             return state;
