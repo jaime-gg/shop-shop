@@ -1,10 +1,16 @@
 import { useReducer } from 'react';
 
 import {
-    UPDATE_CATEGORIES,
     UPDATE_PRODUCTS,
-    UPDATE_CURRENT_CATEGORY
-} from "./actions"
+    UPDATE_CATEGORIES,
+    UPDATE_CURRENT_CATEGORY,
+    ADD_TO_CART,
+    ADD_MULTIPLE_TO_CART,
+    REMOVE_FROM_CART,
+    UPDATE_CART_QUANTITY,
+    CLEAR_CART,
+    TOGGLE_CART
+} from './actions';
 
 export const reducer = (state, action) => {
     switch (action.type) {
@@ -25,6 +31,13 @@ export const reducer = (state, action) => {
             return {
                 ...state, 
                 currentCategory: action.currentCategory
+            }
+        
+        case ADD_TO_CART: 
+            return{
+                ...state,
+                cartOpen: true, 
+                cart: [...state.cart, action.product]
             }
         
         // if none of these actions, do not update state at all and keel things the same!
