@@ -7,7 +7,7 @@ export function pluralize(name, count) {
 
 
 
-export function ibdPromise(storeName, method, object) {
+export function idbPromise(storeName, method, object) {
   return new Promise((resolve, reject) => {
     // open connection to the database 'shop-shop' with the version of one
     const request = window.indexedDB.open('shop-shop', 1)
@@ -46,7 +46,7 @@ export function ibdPromise(storeName, method, object) {
       switch (method) {
         case 'put':
           store.put(object);
-          result(object);
+          resolve(object);
           break;
 
         case 'get':
